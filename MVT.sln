@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVT", "MVT\MVT.csproj", "{266ED840-5F53-415B-8A1D-88F97D56DB1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVT.Web", "MVT.Web\MVT.Web.csproj", "{77576949-E076-4FF1-B39B-712083D8A243}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{266ED840-5F53-415B-8A1D-88F97D56DB1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266ED840-5F53-415B-8A1D-88F97D56DB1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266ED840-5F53-415B-8A1D-88F97D56DB1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266ED840-5F53-415B-8A1D-88F97D56DB1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77576949-E076-4FF1-B39B-712083D8A243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77576949-E076-4FF1-B39B-712083D8A243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77576949-E076-4FF1-B39B-712083D8A243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77576949-E076-4FF1-B39B-712083D8A243}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="AngularAuthApp">
+<head>
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <title>MVT - Moftak Walfare Trust</title>
+    <link href="Asset/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Asset/Content/site.css" rel="stylesheet" />
+    <link href="Asset/Content/loading-bar.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top ng-scope" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="#" class="ng-binding">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="#/users">Users</a></li>
+                    <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuth" class=""> <a href="#/login">Login</a></li>
+                    <li data-ng-hide="authentication.isAuth" class=""> <a href="#/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="page-header text-center">
+                <h3>Moftak Walfare Trust</h3>
+            </div>
+            <p>This is Moftak Walfare Trust Site</p>
+        </div>
+    </div>
+    <div class="container">
+        <div data-ng-view="">
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <p>© 2015 - Moftak Walfare Trust</p>
+            </div>
+        </div>
+    </div>
+    <!-- Libs -->
+    <script src="Asset/Scripts/angular.min.js"></script>
+    <script src="Asset/Scripts/angular-route.min.js"></script>
+    <script src="Asset/Scripts/angular-local-storage.min.js"></script>
+    <script src="Asset/Scripts/loading-bar.js"></script>
+    <!-- app -->
+    <script src="app/app.js"></script>
+
+    <!-- services -->
+    <script src="app/services/authInterceptorService.js"></script>
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/usersService.js"></script>
+
+    <!-- controllers -->
+    <script src="app/controllers/indexController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/signupController.js"></script>
+    <script src="app/controllers/usersController.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>angular-local-storage</id>
+    <version>0.2.3</version>
+    <title>angular-local-storage</title>
+    <authors>Gregory Pike</authors>
+    <owners>Gregory Pike</owners>
+    <projectUrl>https://github.com/grevory/angular-local-storage/tree/0.2.3</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>AngularJS module that gives you access to the browsers local storage with cookie fallback</description>
+    <summary>AngularJS access to browser local storage</summary>
+    <language>en-US</language>
+    <tags>angular local storage browser</tags>
+  </metadata>
+</package>
