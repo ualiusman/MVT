@@ -1,5 +1,5 @@
 ﻿
-<div class="row">
+<div ng-controller="usersController" class="row">
     <div class="col-md-2">
         &nbsp;
     </div>
@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="order in orders">
+                <tr data-ng-repeat="user in users">
                     <td>
                         {{ user.firstName }}
                     </td>

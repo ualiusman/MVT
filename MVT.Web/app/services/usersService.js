@@ -16,4 +16,4 @@ app.factory('usersService', ['$http', function ($http) {
 
     return usersServiceFactory;
 
-}]);
+}])

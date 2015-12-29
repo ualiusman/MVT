@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 [assembly: OwinStartup( typeof(MVT.Startup))]
 namespace MVT
@@ -17,6 +18,8 @@ namespace MVT
         {
 
             HttpConfiguration config = new HttpConfiguration();
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
             WebApiConfig.Register(config);
             app.UseWebApi(config);
 
@@ -36,6 +39,7 @@ namespace MVT
             // Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
         }
     }
 }
