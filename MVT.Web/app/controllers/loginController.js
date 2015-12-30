@@ -8,16 +8,18 @@ app.controller('loginController', ['$scope', '$location', 'authService', functio
 
     $scope.message = "";
 
-    $scope.login = function () {
+    $scope.login = function (isValid) {
+        debugger;
+        if (isValid.$valid) {
+            authService.login($scope.loginData).then(function (response) {
 
-        authService.login($scope.loginData).then(function (response) {
+                $location.path('/users');
 
-            $location.path('/users');
-
-        },
-         function (err) {
-             $scope.message = err.error_description;
-         });
+            },
+             function (err) {
+                 $scope.message = err.error_description;
+             });
+        }
     };
 
 }]);

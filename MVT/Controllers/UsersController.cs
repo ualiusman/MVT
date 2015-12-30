@@ -14,7 +14,9 @@ namespace MVT.Controllers
         [Route("")]
         public IHttpActionResult Get()
         {
-            return Ok(MVT.Controllers.User.GetUsers());
+            AuthRepository rep = new AuthRepository();
+            return Ok(rep.GetAllUsers());
+            
         }
     }
 

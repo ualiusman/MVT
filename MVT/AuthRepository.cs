@@ -36,6 +36,12 @@ namespace MVT
             return user;
         }
 
+        public List<UserModel> GetAllUsers()
+        {
+            List<UserModel> models = (from users in _userManager.Users select new MVT.Models.UserModel { UserName = users.UserName}).ToList();
+            return models;
+        }
+
         public void Dispose()
         {
             _ctx.Dispose();
