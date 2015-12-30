@@ -16,14 +16,14 @@ namespace MVT
     {
         public void Configuration(IAppBuilder app)
         {
-
+            ConfigureOAuth(app);
             HttpConfiguration config = new HttpConfiguration();
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
             WebApiConfig.Register(config);
             app.UseWebApi(config);
 
-            ConfigureOAuth(app);
+            
         }
 
         public void ConfigureOAuth(IAppBuilder app)
