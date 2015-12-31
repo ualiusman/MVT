@@ -4,6 +4,7 @@ using MVT;
 using Owin;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -21,6 +22,7 @@ namespace MVT
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
             WebApiConfig.Register(config);
+            Database.SetInitializer(new ApplicationDbInitializer());
             app.UseWebApi(config);
 
             
