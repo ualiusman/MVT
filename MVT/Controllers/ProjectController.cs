@@ -20,7 +20,8 @@ namespace MVT.Controllers
         // GET api/Project
         public IQueryable<Project> GetProjects()
         {
-            return db.Projects;
+            return db.Projects.Where(proj=>proj.isActive==true
+);
         }
 
         // GET api/Project/5
@@ -99,7 +100,7 @@ namespace MVT.Controllers
             db.Entry(project).State = EntityState.Modified;
             db.SaveChanges();
 
-            return Ok(project);
+            return Ok(true);
         }
 
         protected override void Dispose(bool disposing)
