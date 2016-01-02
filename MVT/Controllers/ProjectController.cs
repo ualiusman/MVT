@@ -20,8 +20,7 @@ namespace MVT.Controllers
         // GET api/Project
         public IQueryable<Project> GetProjects()
         {
-            return db.Projects.Where(proj=>proj.isActive==true
-);
+            return db.Projects.Where(proj=>proj.isActive==true);
         }
 
         // GET api/Project/5
@@ -40,6 +39,7 @@ namespace MVT.Controllers
         // PUT api/Project/5
         public IHttpActionResult PutProject(long id, Project project)
         {
+            project.isActive = true;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -75,6 +75,7 @@ namespace MVT.Controllers
         [ResponseType(typeof(Project))]
         public IHttpActionResult PostProject(Project project)
         {
+            project.isActive = true;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -100,7 +101,7 @@ namespace MVT.Controllers
             db.Entry(project).State = EntityState.Modified;
             db.SaveChanges();
 
-            return Ok(true);
+            return Ok(project);
         }
 
         protected override void Dispose(bool disposing)

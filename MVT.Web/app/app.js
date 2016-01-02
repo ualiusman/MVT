@@ -34,7 +34,7 @@ app.config(function ($routeProvider) {
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 });
-
+app.constant('serviceBase', 'http://localhost:60384/');
 app.run(['authService', function (authService) {
     authService.fillAuthData();
 }]);

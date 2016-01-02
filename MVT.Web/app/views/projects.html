@@ -8,10 +8,10 @@
         </div>
         <div class="col-md-8">
             <form class="form-login" role="form">
-                <h2 class="form-login-heading">Add Project</h2>
-                <input type="text" class="form-control" placeholder="Project Name" data-ng-model="addproject.Name" required autofocus>
-                <textarea class="form-control" placeholder="Description" data-ng-model="addproject.Description"></textarea>
-                <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="AddProject()">Submit</button>
+                <h2 class="form-login-heading">{{ isEdit? "Update Project" : "Add Project"}}</h2>
+                <input type="text" class="form-control" placeholder="Project Name" data-ng-model="addproject.name" required autofocus>
+                <textarea class="form-control" placeholder="Description" data-ng-model="addproject.description"></textarea>
+                <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveProject()">{{ isEdit? "Update": "Add"}}</button>
                 <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
                     {{message}}
                 </div>
@@ -36,7 +36,7 @@
                         </td>
                        
                       
-                        <td><a href="#" ng-click="editproject(proj.id,$event)">Edit</a></td>
+                        <td><a href="#" ng-click="editproject(proj.id,$index,$event)">Edit</a></td>
                         <td><a href="#" ng-click="deleteproject(proj.id,$index,$event)">Delete</a></td>
                        
                     </tr>

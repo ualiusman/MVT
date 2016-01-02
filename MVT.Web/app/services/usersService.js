@@ -1,7 +1,6 @@
 ﻿'use strict';
 app.factory('usersService', ['$http', function ($http) {
 
-    var serviceBase = 'http://localhost:60384/';
     var usersServiceFactory = {};
 
     var _getUsers = function () {

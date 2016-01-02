@@ -1,12 +1,18 @@
 ﻿'use strict';
 app.factory('projectsService', ['$http', function ($http) {
 
-    var serviceBase = 'http://localhost:60384/';
     var projectsServiceFactory = {};
    
     var _getProjects = function () {
 
         return $http.get(serviceBase + 'api/Project').then(function (results) {
+            debugger;
+            return results;
+        });
+    };
+
+    var _getProject = function (id) {
+        return $http.get(serviceBase + 'api/Project/' + id).then(function (results) {
             debugger;
             return results;
         });
@@ -25,10 +31,18 @@ app.factory('projectsService', ['$http', function ($http) {
         });
 
     };
+
+    var _updateProject = function (id,project) {
+        return $http.put(serviceBase + 'api/Project/' + id, project).then(function (response) {
+            return response;
+        });
+    };
     debugger;
     projectsServiceFactory.getProjects = _getProjects;
+    projectsServiceFactory.getProject = _getProject;
     projectsServiceFactory.deleteProject = _deleteProject;
     projectsServiceFactory.saveProject = _saveProject;
+    projectsServiceFactory.updateProject = _updateProject;
     return projectsServiceFactory;
 
 }])

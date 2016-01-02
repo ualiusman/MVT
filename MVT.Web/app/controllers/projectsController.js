@@ -3,10 +3,19 @@ app.controller('projectsController', ['$scope', 'projectsService', function ($sc
 
     $scope.projects = [];
     $scope.savedSuccessfully = false;
+    $scope.isEdit = false;
+    $scope.editId = 0;
+    $scope.editIndex = 0;
     $scope.message = "";
     $scope.addproject = {
-        Name: "",
-        Description: "",
+        name: "",
+        description: "",
+        id: 0,
+        reset: function () {
+            this.name= "";
+            this.description= "";
+            this.id = 0;
+        }
     };
     projectsService.getProjects().then(function (results) {
         debugger;
@@ -15,16 +24,11 @@ app.controller('projectsController', ['$scope', 'projectsService', function ($sc
     }, function (error) {
 
     });
-    $scope.AddProject = function () {
-
-        projectsService.saveProject($scope.addproject).then(function (response) {
-            $scope.savedSuccessfully = true;
-            $scope.message = "Project has been added successfully";      
-        },
-         function (response) {
-         
-             $scope.message = "Failed to register user due to some technical problem";
-         });
+    $scope.saveProject = function () {
+        if ($scope.isEdit)
+            update();
+        else
+            save();
     };
     $scope.deleteproject = function (idx, index,event) {
         debugger;
@@ -34,9 +38,51 @@ app.controller('projectsController', ['$scope', 'projectsService', function ($sc
         });
         event.preventDefault();
     };
-    $scope.editproject = function (idx,event) {
-        alert("ufff");
+    $scope.editproject = function (idx, index, event) {
+        debugger;
+        projectsService.getProject(idx).then(function (result) {
+            debugger;
+            $scope.addproject.name = result.data.name;
+            $scope.addproject.description = result.data.description;
+            $scope.isEdit = true;
+            $scope.editId = idx;
+            $scope.editIndex = index;
+        }, function (error) {
+
+        });
         event.preventDefault();
+
+    };
+
+
+    var save = function () {
+        projectsService.saveProject($scope.addproject).then(function (response) {
+            $scope.savedSuccessfully = true;
+            $scope.message = "Project has been added successfully";
+            $scope.addproject.reset();
+            $scope.projects.push(response.data);
+        },
+             function (response) {
+
+                 $scope.message = "Error! Try Again";
+             });
+    };
+
+    var update = function () {
+        debugger;
+        $scope.addproject.id = $scope.editId;
+        projectsService.updateProject($scope.editId, $scope.addproject).then(function (response) {
+            $scope.savedSuccessfully = true;
+            $scope.isEdit = false;
+            $scope.projects[$scope.editIndex].description = $scope.addproject.description;
+            $scope.projects[$scope.editIndex].name = $scope.addproject.name;
+            $scope.addproject.reset();
+            $scope.message = "Project has been updated successfully";
+        },
+             function (response) {
+
+                 $scope.message = "Error! Try Again";
+             });
     };
 
 }]);
