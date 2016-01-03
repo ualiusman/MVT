@@ -13,44 +13,43 @@ using MVT;
 
 namespace MVT.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    public class ProjectController : ApiController
+    public class NeedyController : ApiController
     {
         private MVTContext db = new MVTContext();
 
-        // GET api/Project
-        public IQueryable<Project> GetProjects()
+        // GET api/Needy
+        public IQueryable<Needy> GetNeedy()
         {
-            return db.Projects.Where(proj=>proj.isActive==true);
+            return db.Needy.Where(f => f.IsActive == true);
         }
 
-        // GET api/Project/5
-        [ResponseType(typeof(Project))]
-        public IHttpActionResult GetProject(long id)
+        // GET api/Needy/5
+        [ResponseType(typeof(Needy))]
+        public IHttpActionResult GetNeedy(long id)
         {
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Needy needy = db.Needy.Find(id);
+            if (needy == null)
             {
                 return NotFound();
             }
 
-            return Ok(project);
+            return Ok(needy);
         }
 
-        // PUT api/Project/5
-        public IHttpActionResult PutProject(long id, Project project)
+        // PUT api/Needy/5
+        public IHttpActionResult PutNeedy(long id, Needy needy)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != project.Id)
+            if (id != needy.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(project).State = EntityState.Modified;
+            db.Entry(needy).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +57,7 @@ namespace MVT.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProjectExists(id))
+                if (!NeedyExists(id))
                 {
                     return NotFound();
                 }
@@ -71,36 +70,36 @@ namespace MVT.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST api/Project
-        [ResponseType(typeof(Project))]
-        public IHttpActionResult PostProject(Project project)
+        // POST api/Needy
+        [ResponseType(typeof(Needy))]
+        public IHttpActionResult PostNeedy(Needy needy)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Projects.Add(project);
+            db.Needy.Add(needy);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = project.Id }, project);
+            return CreatedAtRoute("DefaultApi", new { id = needy.Id }, needy);
         }
 
-        // DELETE api/Project/5
-        [ResponseType(typeof(Project))]
-        public IHttpActionResult DeleteProject(long id)
+        // DELETE api/Needy/5
+        [ResponseType(typeof(Needy))]
+        public IHttpActionResult DeleteNeedy(long id)
         {
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Needy needy = db.Needy.Find(id);
+            if (needy == null)
             {
                 return NotFound();
             }
 
-            project.isActive = false;
-            db.Entry(project).State = EntityState.Modified;
+            needy.IsActive = false;
+            db.Entry(needy).State = EntityState.Modified;
             db.SaveChanges();
 
-            return Ok(project);
+            return Ok(needy);
         }
 
         protected override void Dispose(bool disposing)
@@ -112,9 +111,9 @@ namespace MVT.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProjectExists(long id)
+        private bool NeedyExists(long id)
         {
-            return db.Projects.Count(e => e.Id == id) > 0;
+            return db.Needy.Count(e => e.Id == id) > 0;
         }
     }
 }

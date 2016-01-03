@@ -6,22 +6,24 @@ using System.Web;
 
 namespace MVT.Models
 {
-    public class Project
+    public class Needy
     {
-        public Project() 
-        { 
-            this.isActive = true; 
+        public Needy()
+        {
+            this.IsActive = true;
         }
-
-
         [Key]
         public long Id { get; set; }
-        
+
         [Required]
         public string Name { get; set; }
 
-        public string Description { get; set; }
-        
-        public bool isActive { get; set; }
+        [Required]
+        public string Location { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

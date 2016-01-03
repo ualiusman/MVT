@@ -12,34 +12,41 @@ namespace MVT
     public class AuthRepository:IDisposable
     {
         private MVTContext _ctx;
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<ApplicationUser> _userManager;
 
         public AuthRepository()
         {
             _ctx = new MVTContext();
-            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
+            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_ctx));
         }
 
-        public async Task<IdentityResult> RegisterUser(UserModel userModel)
+        public async Task<IdentityResult> RegisterUser(SignupModel signupModel)
         {
-            IdentityUser user = new IdentityUser
+            ApplicationUser user = new ApplicationUser
             {
-                UserName = userModel.UserName
+                UserName = signupModel.UserName,
+                FirstName = signupModel.FirstName,
+                LastName = signupModel.LastName,
+                Email = signupModel.Email,
+                PhoneNumber = signupModel.PhoneNumber
             };
-            var result = await _userManager.CreateAsync(user, userModel.Password);
+            var result = await _userManager.CreateAsync(user, signupModel.Password);
+            if (result.Succeeded)
+            {
+                _userManager.AddToRole(user.Id, "Contributor");
+            }
             return result;
         }
 
-        public async Task<IdentityUser> FindUser(string username, string password)
+        public async Task<ApplicationUser> FindUser(string username, string password)
         {
-            IdentityUser user = await _userManager.FindAsync(username, password);
+            ApplicationUser user = await _userManager.FindAsync(username, password);
             return user;
         }
 
-        public List<UserModel> GetAllUsers()
+        public async Task<IList<string>> GetRoles(ApplicationUser user)
         {
-            List<UserModel> models = (from users in _userManager.Users select new MVT.Models.UserModel { UserName = users.UserName}).ToList();
-            return models;
+            return await _userManager.GetRolesAsync(user.Id);
         }
 
         public void Dispose()

@@ -5,7 +5,8 @@ app.factory('authService', ['$http', '$q', 'localStorageService',
 
         var _authentication = {
             isAuth: false,
-            userName: ""
+            userName: "",
+            role:""
         };
 
         var _saveRegistration = function (registration) {
@@ -25,11 +26,11 @@ app.factory('authService', ['$http', '$q', 'localStorageService',
             var deferred = $q.defer();
 
             $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
-
-                localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
-
+                localStorageService.set('authorizationData', { token: response.access_token, userName: response.userName, role: JSON.parse(response.roles)[0] });
+                debugger;
                 _authentication.isAuth = true;
-                _authentication.userName = loginData.userName;
+                _authentication.userName = response.userName;
+                _authentication.role = JSON.parse(response.roles)[0];
 
                 deferred.resolve(response);
 
@@ -48,6 +49,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService',
 
             _authentication.isAuth = false;
             _authentication.userName = "";
+            _authentication.role = "";
 
         };
 
@@ -57,9 +59,11 @@ app.factory('authService', ['$http', '$q', 'localStorageService',
             if (authData) {
                 _authentication.isAuth = true;
                 _authentication.userName = authData.userName;
+                _authentication.role = authData.role;
             }
 
         }
+
 
         authServiceFactory.saveRegistration = _saveRegistration;
         authServiceFactory.login = _login;
