@@ -32,6 +32,10 @@ app.config(function ($routeProvider) {
         controller: "profileController",
         templateUrl: "/app/views/profile.html"
     });
+    $routeProvider.when("/needys", {
+        controller: "needysController",
+        templateUrl: "/app/views/needys.html"
+    });
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

@@ -7,11 +7,11 @@
             &nbsp;
         </div>
         <div class="col-md-8">
-            <form class="form-login" role="form">
+            <form name="form-project" class="form-login" role="form" ng-submit="saveProject(form.$invalid)">
                 <h2 class="form-login-heading">{{ isEdit? "Update Project" : "Add Project"}}</h2>
                 <input type="text" class="form-control" placeholder="Project Name" data-ng-model="addproject.name" required autofocus>
                 <textarea class="form-control" placeholder="Description" data-ng-model="addproject.description"></textarea>
-                <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveProject()">{{ isEdit? "Update": "Add"}}</button>
+                <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveProject(form-project)">{{ isEdit? "Update": "Add"}}</button>
                 <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
                     {{message}}
                 </div>

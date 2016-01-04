@@ -24,11 +24,13 @@ app.controller('projectsController', ['$scope', 'projectsService', function ($sc
     }, function (error) {
 
     });
-    $scope.saveProject = function () {
-        if ($scope.isEdit)
-            update();
-        else
-            save();
+    $scope.saveProject = function (isValid) {
+        if (isValid.$valid) {
+            if ($scope.isEdit)
+                update();
+            else
+                save();
+        }
     };
     $scope.deleteproject = function (idx, index,event) {
         debugger;

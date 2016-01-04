@@ -1,0 +1,56 @@
+﻿<div ng-controller="needysController" class="row">
+
+
+
+
+    <div class="col-md-2">
+        &nbsp;
+    </div>
+    <div class="col-md-8">
+        <form name="form-needy" class="form-login" role="form" ng-submit="needy(form.$invalid)">
+            <h2 class="form-login-heading">{{ isEdit? "Update Needy" : "Add Needy"}}</h2>
+            <input type="text" class="form-control" placeholder="Needy Name" data-ng-model="addneedy.name" required autofocus>
+
+            <textarea class="form-control" placeholder="Location" data-ng-model="addneedy.location"></textarea>
+            <input type="text" class="form-control" placeholder="Needy Phone no" data-ng-model="addneedy.phoneNumber" required autofocus>
+            <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveNeedy(form-needy)">{{ isEdit? "Update": "Add"}}</button>
+            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                {{message}}
+            </div>
+        </form>
+        <br /><br />
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Needy Name</th>
+                    <th>Needy location</th>
+                    <th>Needy Phone Number</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="ned in needys">
+                    <td>
+                        {{ ned.name }}
+                    </td>
+                    <td>
+                        {{ ned.location }}
+                    </td>
+                    <td>
+                        {{ ned.phoneNumber }}
+                    </td>
+
+                    <td><a href="#" ng-click="editneedy(ned.id,$index,$event)">Edit</a></td>
+                    <td><a href="#" ng-click="deleteneedy(ned.id,$index,$event)">Delete</a></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2">
+        &nbsp;
+    </div>
+
+</div>
+
