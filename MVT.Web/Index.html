@@ -19,7 +19,7 @@
             </div>
             <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="#" class="ng-binding">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="#/profile" class="ng-binding">Welcome {{authentication.userName}}</a></li>
                     <li data-ng-hide="!(authentication.isAuth && authentication.role ==='Admin')" class="ng-hide"><a href="#/projects">Projects</a></li>
                     <li data-ng-hide="!(authentication.isAuth && authentication.role ==='Admin')" class="ng-hide"><a href="#/needys">Needys</a></li>
                     <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="#/users">Users</a></li>

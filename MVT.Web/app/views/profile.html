@@ -1,10 +1,10 @@
 ﻿<div data-ng-controller="profileController">
     <h2>{{profile.userName}}</h2>
     <div>
-        <label>Last Name:</label>{{profile.firstName}}
+        <label>First Name:</label>{{profile.firstName}}
     </div>
     <div>
-        <label>First Name:</label>{{profile.lastName}}
+        <label>Last Name:</label>{{profile.lastName}}
     </div>
     <div>
         <label>Phone Number:</label>{{profile.phoneNumber}}
@@ -13,6 +13,39 @@
         <label>Email:</label>{{profile.email}}
     </div>
     <div>
-        <button class="btn btn-default">Edit</button>
+        <button class="btn btn-default" data-ng-click="edit()">Edit</button>
     </div>
+    <br/>
+    <br/>
+    <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+        {{message}}
+    </div>
+    <form style="width:30%;" name="form" role="form" ng-submit="saveProject(form.$invalid)" data-ng-show="isEdit">
+        <h3>Edit Profile</h3>
+        <fieldset>
+            <div class="form-group">
+                <label for="firstName">
+                    First Name:
+                </label>
+                <input id="firstName" type="text" class="form-control" data-ng-model="profile.firstName" required />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" class="form-control" data-ng-model="profile.lastName" required />
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input id="phoneNumber" type="tel" class="form-control" data-ng-model="profile.phoneNumber" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" type="email" class="form-control" data-ng-model="profile.email" required />
+            </div>
+            <button id="save" type="submit" class="btn btn-default" data-ng-click="save(form)">Save</button>
+            <button id="cancel" class="btn btn-default" data-ng-click="cancel()">Cancel</button>
+        </fieldset>
+    </form>
+    <br/>
+    <br />
+
 </div>

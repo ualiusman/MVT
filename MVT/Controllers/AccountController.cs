@@ -17,13 +17,6 @@ namespace MVT.Controllers
     public class AccountController : ApiController
     {
         private AuthRepository _repo = null;
-
-
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-            
-        }
         
         [AllowAnonymous]
         [Route("Register")]
@@ -45,21 +38,51 @@ namespace MVT.Controllers
             return Ok();
         }
 
-        [Route("Profile")]
-        [HttpPost]
+        [Authorize]
+        [Route("Profile/{userName}")]
+        [HttpGet]
         public IHttpActionResult Profile(string userName)
         {
              MVTContext ctx = new MVTContext();
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(ctx));
 
 
-            ApplicationUser profile = UserManager.Users.Where(f=> f.UserName == userName).First();
+            ApplicationUser profile = UserManager.FindByName(userName);
             if (profile == null)
             {
                 return NotFound();
             }
+            return Ok(App.Convert(profile));
+        }
 
-            return Ok(profile);
+
+
+        [Authorize]
+        [Route("Profile")]
+        [HttpPost]
+        public IHttpActionResult Profile(UserModel user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            MVTContext ctx = new MVTContext();
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(ctx));
+            ApplicationUser u = UserManager.FindById(user.Id);
+            if (u == null)
+                return NotFound();
+            u.LastName = user.LastName;
+            u.FirstName = user.FirstName;
+            u.Email = user.Email;
+            u.PhoneNumber = user.PhoneNumber;
+            var results = UserManager.Update(u);
+
+            
+            if (!results.Succeeded)
+                return GetErrorResult(results);
+            
+            return Ok();
         }
 
         //protected override void Dispose(bool disposing)
