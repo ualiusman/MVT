@@ -25,5 +25,22 @@ namespace MVT.Models
         public string PhoneNumber { get; set; }
 
         public bool IsActive { get; set; }
+
+        public virtual ICollection<Donation> Donations { get; set; }
+    }
+
+    public class NeedyModel
+    {
+        [Key]
+        public long Id { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string Location { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
     }
 }

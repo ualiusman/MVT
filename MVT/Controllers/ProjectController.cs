@@ -19,13 +19,14 @@ namespace MVT.Controllers
         private MVTContext db = new MVTContext();
 
         // GET api/Project
-        public IQueryable<Project> GetProjects()
+        public IQueryable<ProjectModel> GetProjects()
         {
-            return db.Projects.Where(proj=>proj.isActive==true);
+            return db.Projects.Where(proj => proj.isActive == true)
+                .Select(f => new ProjectModel { Description = f.Description, Name=f.Name, Id = f.Id });
         }
 
         // GET api/Project/5
-        [ResponseType(typeof(Project))]
+        [ResponseType(typeof(ProjectModel))]
         public IHttpActionResult GetProject(long id)
         {
             Project project = db.Projects.Find(id);
@@ -34,11 +35,11 @@ namespace MVT.Controllers
                 return NotFound();
             }
 
-            return Ok(project);
+            return Ok(App.Convert(project));
         }
 
         // PUT api/Project/5
-        public IHttpActionResult PutProject(long id, Project project)
+        public IHttpActionResult PutProject(long id, ProjectModel project)
         {
             if (!ModelState.IsValid)
             {
@@ -49,8 +50,14 @@ namespace MVT.Controllers
             {
                 return BadRequest();
             }
-
-            db.Entry(project).State = EntityState.Modified;
+            var p = db.Projects.Find(id);
+            if(p == null)
+            {
+                return NotFound();
+            }
+            p.Name = project.Name;
+            p.Description = project.Description;
+             db.Entry(p).State = EntityState.Modified;
 
             try
             {
@@ -72,22 +79,21 @@ namespace MVT.Controllers
         }
 
         // POST api/Project
-        [ResponseType(typeof(Project))]
-        public IHttpActionResult PostProject(Project project)
+        [ResponseType(typeof(ProjectModel))]
+        public IHttpActionResult PostProject(ProjectModel project)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Projects.Add(project);
+            var p = db.Projects.Add(App.Convert(project));
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = project.Id }, project);
+            return CreatedAtRoute("DefaultApi", new { id = p.Id }, App.Convert(p));
         }
 
         // DELETE api/Project/5
-        [ResponseType(typeof(Project))]
         public IHttpActionResult DeleteProject(long id)
         {
             Project project = db.Projects.Find(id);
@@ -100,7 +106,7 @@ namespace MVT.Controllers
             db.Entry(project).State = EntityState.Modified;
             db.SaveChanges();
 
-            return Ok(project);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
