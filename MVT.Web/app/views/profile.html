@@ -1,4 +1,4 @@
-﻿<div data-ng-controller="profileController">
+﻿<!--<div data-ng-controller="profileController">
     <h2>{{profile.userName}}</h2>
     <div>
         <label>First Name:</label>{{profile.firstName}}
@@ -48,4 +48,188 @@
     <br/>
     <br />
 
+</div>-->
+<div class="container" data-ng-controller="profileController" >
+    <div class="row" data-ng-show="ishide">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">User Profile</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="../../Asset/Images/userpic.jpg" class="img-circle img-responsive"> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>User Name:</td>
+                                        <td>{{profile.userName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>First Name:</td>
+                                        <td>{{profile.firstName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <td>{{profile.lastName}}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>Phone No</td>
+                                        <td>{{profile.phoneNumber}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{profile.email}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <span class="pull-right">
+
+                        <button class="btn btn-sm btn-warning" data-ng-click="edit()"><i class="glyphicon glyphicon-edit"></i></button>
+                      
+                    </span>
+                </div>
+
+            </div>
+            <br />
+            <br />
+            <!--<div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                {{message}}
+            </div>-->
+            <!--<form style="width:30%;" name="form" role="form" ng-submit="saveProject(form.$invalid)" data-ng-show="isEdit">
+                <h3>Edit Profile</h3>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="firstName">
+                            First Name:
+                        </label>
+                        <input id="firstName" type="text" class="form-control" data-ng-model="profile.firstName" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" class="form-control" data-ng-model="profile.lastName" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input id="phoneNumber" type="tel" class="form-control" data-ng-model="profile.phoneNumber" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input id="email" type="email" class="form-control" data-ng-model="profile.email" required />
+                    </div>
+                    <button id="save" type="submit" class="btn btn-default" data-ng-click="save(form)">Save</button>
+                    <button id="cancel" class="btn btn-default" data-ng-click="cancel()">Cancel</button>
+                </fieldset>
+            </form>-->
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row" data-ng-show="isEdit">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+            <div class="panel panel-info">
+                <form name="form" role="form" ng-submit="saveProject(form.$invalid)">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">User Profile</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="../../Asset/Images/userpic.jpg" class="img-circle img-responsive"> </div>
+                            <div class=" col-md-9 col-lg-9 ">
+
+                                <table class="table table-user-information">
+                                    <tbody>
+
+                                        <tr>
+                                            <td>First Name:</td>
+                                            <td><input id="firstName" type="text" class="form-control" data-ng-model="profile.firstName" required /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Last Name</td>
+                                            <td><input type="text" id="lastName" class="form-control" data-ng-model="profile.lastName" required /></td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>Phone No</td>
+                                            <td><input id="phoneNumber" type="tel" class="form-control" data-ng-model="profile.phoneNumber" required /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td><input id="email" type="email" class="form-control" data-ng-model="profile.email" required /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+
+                            <button class="btn btn-sm btn-warning" data-ng-click="save(form)"><i class="glyphicon glyphicon-edit"></i></button>
+                            <button id="cancel" class="btn btn-default" data-ng-click="cancel()">x</button>
+                            <!--<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>-->
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <br />
+            <br />
+            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                {{message}}
+            </div>
+
+
+        </div>
+    </div>
 </div>
+
+<style>
+    .user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+</style>

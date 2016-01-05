@@ -6,16 +6,45 @@
     <link href="Asset/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Asset/Content/site.css" rel="stylesheet" />
     <link href="Asset/Content/loading-bar.css" rel="stylesheet" />
+    <link href="Asset/Content/bootstrap.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+    <style>
+        #slides_control > div{
+  height: 200px;
+}
+img{
+  margin:auto;
+  width: 400px;
+}
+#slides_control {
+  position:absolute;
+  width: 400px;
+  left:50%;
+  top:20px;
+ margin-left:-200px;
+}
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top ng-scope" role="navigation" data-ng-controller="indexController">
         <div class="container">
+
+            <img src="../../Asset/Images/Icon/logo.jpg" style="float:left;height:40px;width:170px;" />
+
             <div class="navbar-header">
+                
                 <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
                     <span class="glyphicon glyphicon-chevron-down"></span>
                 </button>
-                <a class="navbar-brand" href="#/">Home</a>
+
+                <a style="margin-left:10%!important;" class="navbar-brand" href="#/">Home</a>
             </div>
             <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
                 <ul class="nav navbar-nav navbar-right">
@@ -31,11 +60,25 @@
         </div>
     </div>
     <div class="jumbotron">
-        <div class="container">
-            <div class="page-header text-center">
-                <h3>Moftak Walfare Trust</h3>
-            </div>
+        <div class="container" ng-controller="folderCtrl">          
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">                            
+                <ol class="carousel-indicators">                    
+                    <li data-target="#myCarousel" ng-repeat="img in images" class="{active : ($index === 0)}" data-slide-to="{{$index}}"></li>                    
+                </ol>                
+                <div class="carousel-inner" role="listbox">                    
+                    <div ng-class="{item: true, active : ($index === 0)}" ng-repeat="img in images">
+                        <img ng-src="{{img}}"  style="height:240px;width:600px;" alt=" {{img}}">                        
+                        <div class="container">                            
+                            <div class="carousel-caption"> </div>                            
+                        </div>                        
+                    </div>                    
+                </div>                
+                <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>-->
+            </div>  
+            
+         
         </div>
+
     </div>
     <div class="container">
         <div data-ng-view="">
@@ -53,7 +96,10 @@
     <script src="Asset/Scripts/angular-route.min.js"></script>
     <script src="Asset/Scripts/angular-local-storage.min.js"></script>
     <script src="Asset/Scripts/loading-bar.js"></script>
-    <!-- app -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <!-- app -->
     <script src="app/app.js"></script>
 
     <!-- services -->
@@ -72,5 +118,24 @@
     <script src="app/controllers/projectsController.js"></script>
     <script src="app/controllers/profileController.js"></script>
     <script src="app/controllers/needysController.js"></script>
+    <script src="Asset/Scripts/angular-bootstrap.min.js"></script>
+
+    <script>
+        
+        app.controller('folderCtrl', function ($scope, $http) {
+
+
+
+
+
+
+            $scope.images = ['../../Asset/Images/images (1).jpg', '../../Asset/Images/helping-others.jpg', '../../Asset/Images/ngo_mysore.jpg', '../../Asset/Images/ngo.jpg', '../../Asset/Images/M_Id_307360_NGO.jpg'];
+
+
+
+
+        });
+ 
+    </script>
 </body>
 </html>

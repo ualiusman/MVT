@@ -79,6 +79,15 @@
     <Content Include="app\views\users.html" />
     <Content Include="app\views\signup.html" />
     <Content Include="Asset\Content\loading-bar.css" />
+    <Content Include="Asset\Images\helping-others.jpg" />
+    <Content Include="Asset\Images\Icon\logo.jpg" />
+    <Content Include="Asset\Images\images %281%29.jpg" />
+    <Content Include="Asset\Images\jjjj.jpg" />
+    <Content Include="Asset\Images\M_Id_307360_NGO.jpg" />
+    <Content Include="Asset\Images\ngo.jpg" />
+    <Content Include="Asset\Images\ngo_mysore.jpg" />
+    <Content Include="Asset\Images\userpic.jpg" />
+    <Content Include="Asset\Scripts\angular-bootstrap.min.js" />
     <Content Include="Asset\Scripts\loading-bar.js" />
     <Content Include="Asset\Scripts\version.json" />
     <Content Include="Asset\Scripts\errors.json" />
@@ -900,9 +909,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Asset\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
