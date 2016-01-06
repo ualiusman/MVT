@@ -18,13 +18,20 @@ namespace MVT.Controllers
         private MVTContext db = new MVTContext();
 
         // GET api/Needy
-        public IQueryable<Needy> GetNeedy()
+        public IQueryable<NeedyModel> GetNeedy()
         {
-            return db.Needy.Where(f => f.IsActive == true);
+            return db.Needy.Where(f => f.IsActive == true)
+                .Select(f => new NeedyModel
+                {
+                    Id = f.Id,
+                    Name = f.Name,
+                    PhoneNumber = f.PhoneNumber,
+                    Location = f.Location
+                });
         }
 
         // GET api/Needy/5
-        [ResponseType(typeof(Needy))]
+        [ResponseType(typeof(NeedyModel))]
         public IHttpActionResult GetNeedy(long id)
         {
             Needy needy = db.Needy.Find(id);
@@ -33,11 +40,11 @@ namespace MVT.Controllers
                 return NotFound();
             }
 
-            return Ok(needy);
+            return Ok(App.Convert(needy));
         }
 
         // PUT api/Needy/5
-        public IHttpActionResult PutNeedy(long id, Needy needy)
+        public IHttpActionResult PutNeedy(long id, NeedyModel needy)
         {
             if (!ModelState.IsValid)
             {
@@ -49,7 +56,15 @@ namespace MVT.Controllers
                 return BadRequest();
             }
 
-            db.Entry(needy).State = EntityState.Modified;
+            var n = db.Needy.Find(id);
+            if (n == null)
+            {
+                return NotFound();
+            }
+            n.Name = needy.Name;
+            n.Location = needy.Location;
+            n.PhoneNumber = needy.PhoneNumber;
+            db.Entry(n).State = EntityState.Modified;
 
             try
             {
@@ -71,22 +86,21 @@ namespace MVT.Controllers
         }
 
         // POST api/Needy
-        [ResponseType(typeof(Needy))]
-        public IHttpActionResult PostNeedy(Needy needy)
+        [ResponseType(typeof(NeedyModel))]
+        public IHttpActionResult PostNeedy(NeedyModel needy)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Needy.Add(needy);
+            var n = db.Needy.Add( App.Convert(needy));
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = needy.Id }, needy);
+            return CreatedAtRoute("DefaultApi", new { id = n.Id }, App.Convert(n));
         }
 
         // DELETE api/Needy/5
-        [ResponseType(typeof(Needy))]
         public IHttpActionResult DeleteNeedy(long id)
         {
             Needy needy = db.Needy.Find(id);
@@ -99,7 +113,7 @@ namespace MVT.Controllers
             db.Entry(needy).State = EntityState.Modified;
             db.SaveChanges();
 
-            return Ok(needy);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

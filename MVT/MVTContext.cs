@@ -42,6 +42,8 @@ namespace MVT
 
         public DbSet<Project> Projects { get; set; }
         public DbSet<Needy> Needy { get; set; }
+        public DbSet<Contribution> Contributions { get; set; }
+        public DbSet<Donation> Donations { get; set; }
 
 
         protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)

@@ -22,10 +22,10 @@ namespace MVT
         public static void InitializeIdentityForEF(MVTContext context)
         {
             InitilizeRolesAndUsers(context);
-            InitilizeProjects( context);
-            InitilizeNeedy(context);
+            InitilizeData( context);
         }
 
+        #region Roles and Users
         public static void InitilizeRolesAndUsers(MVTContext context)
         {
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
@@ -94,6 +94,17 @@ namespace MVT
                 UserManager.AddToRole(user.Id, "Admin");
             }
 
+            user = new ApplicationUser();
+            user.UserName = "contriutor";
+            user.FirstName = "Contributor";
+            user.LastName = "Contributor";
+            user.Email = "contribtor@mwt.com";
+            user.PhoneNumber = "83738373837";
+            result = UserManager.Create(user, "moftak");
+            if (result.Succeeded)
+            {
+                UserManager.AddToRole(user.Id, "Contributor");
+            }
         }
 
         public static void CreateRole(RoleManager<IdentityRole> RoleManager, string role)
@@ -103,19 +114,23 @@ namespace MVT
                 RoleManager.Create(new IdentityRole(role));
             }
         }
-
-        public static void InitilizeProjects(MVTContext context)
+        #endregion
+        public static void InitilizeData(MVTContext context)
         {
-            Project p = new Project { isActive = true, Description = "First Prject For Mofak Welfare Trust", Name = "Project M" };
+            Project p = new Project { isActive = true, Description = "Give it to Poors", Name = "Give It" };
             context.Projects.Add(p);
+
+            Needy n = new Needy() { IsActive = true, Location = "XYZ", Name = "Needy Name", PhoneNumber = "37363736" };
+            context.Needy.Add(n);
+
+            Contribution contribution = new Contribution { Ammount = 100, Contributor = "contriutor", ProjectId = p.Id };
+            context.Contributions.Add(contribution);
+
+            Donation donation = new Donation { NeedyId = n.Id, ProjectId = p.Id, Ammount = 50 };
+            context.Donations.Add(donation);
+            
             context.SaveChanges();
         }
 
-        public static void InitilizeNeedy(MVTContext context)
-        {
-            Needy n = new Needy() { IsActive = true, Location = "Locaation, Institure etc", Name = "Name", PhoneNumber = "phone Number" };
-            context.Needy.Add(n);
-            context.SaveChanges();
-        }
     }
 }
