@@ -87,46 +87,18 @@
     <Content Include="Asset\Images\ngo.jpg" />
     <Content Include="Asset\Images\ngo_mysore.jpg" />
     <Content Include="Asset\Images\userpic.jpg" />
-    <Content Include="Asset\Scripts\angular-bootstrap.min.js" />
-    <Content Include="Asset\Scripts\loading-bar.js" />
-    <Content Include="Asset\Scripts\version.json" />
-    <Content Include="Asset\Scripts\errors.json" />
-    <Content Include="Asset\Scripts\angular-touch.min.js.map" />
-    <Content Include="Asset\Scripts\angular-sanitize.min.js.map" />
-    <Content Include="Asset\Scripts\angular-route.min.js.map" />
-    <Content Include="Asset\Scripts\angular-resource.min.js.map" />
-    <Content Include="Asset\Scripts\angular-messages.min.js.map" />
-    <Content Include="Asset\Scripts\angular-message-format.min.js.map" />
-    <Content Include="Asset\Scripts\angular-loader.min.js.map" />
-    <Content Include="Asset\Scripts\angular-cookies.min.js.map" />
-    <Content Include="Asset\Scripts\angular-aria.min.js.map" />
-    <Content Include="Asset\Scripts\angular-animate.min.js.map" />
-    <Content Include="Asset\Scripts\angular.min.js.map" />
-    <Content Include="packages.config" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="app\app.js" />
-    <Content Include="Asset\Content\bootstrap-theme.css" />
-    <Content Include="Asset\Content\bootstrap-theme.min.css" />
-    <Content Include="Asset\Content\bootstrap.css" />
-    <Content Include="Asset\Content\bootstrap.min.css" />
-    <Content Include="Asset\Content\site.css" />
-    <Content Include="Asset\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Asset\Scripts\angular-animate.js" />
     <Content Include="Asset\Scripts\angular-animate.min.js" />
     <Content Include="Asset\Scripts\angular-aria.js" />
     <Content Include="Asset\Scripts\angular-aria.min.js" />
+    <Content Include="Asset\Scripts\angular-bootstrap.min.js" />
     <Content Include="Asset\Scripts\angular-cookies.js" />
     <Content Include="Asset\Scripts\angular-cookies.min.js" />
     <Content Include="Asset\Scripts\angular-csp.css" />
     <Content Include="Asset\Scripts\angular-loader.js" />
     <Content Include="Asset\Scripts\angular-loader.min.js" />
+    <Content Include="Asset\Scripts\angular-local-storage.js" />
+    <Content Include="Asset\Scripts\angular-local-storage.min.js" />
     <Content Include="Asset\Scripts\angular-message-format.js" />
     <Content Include="Asset\Scripts\angular-message-format.min.js" />
     <Content Include="Asset\Scripts\angular-messages.js" />
@@ -889,6 +861,40 @@
     <Content Include="Asset\Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Asset\Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Asset\Scripts\i18n\angular-locale_zu.js" />
+    <None Include="Asset\Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Asset\Scripts\jquery-1.9.1.js" />
+    <Content Include="Asset\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Asset\Scripts\loading-bar.js" />
+    <Content Include="packages.config" />
+    <Content Include="Asset\Scripts\angular-animate.min.js.map" />
+    <Content Include="Asset\Scripts\angular-aria.min.js.map" />
+    <Content Include="Asset\Scripts\angular-cookies.min.js.map" />
+    <Content Include="Asset\Scripts\angular-loader.min.js.map" />
+    <Content Include="Asset\Scripts\angular-message-format.min.js.map" />
+    <Content Include="Asset\Scripts\angular-messages.min.js.map" />
+    <Content Include="Asset\Scripts\angular-resource.min.js.map" />
+    <Content Include="Asset\Scripts\angular-route.min.js.map" />
+    <Content Include="Asset\Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Asset\Scripts\angular-touch.min.js.map" />
+    <Content Include="Asset\Scripts\angular.min.js.map" />
+    <Content Include="Asset\Scripts\errors.json" />
+    <Content Include="Asset\Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Asset\Scripts\version.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="Asset\Content\bootstrap-theme.css" />
+    <Content Include="Asset\Content\bootstrap-theme.min.css" />
+    <Content Include="Asset\Content\bootstrap.css" />
+    <Content Include="Asset\Content\bootstrap.min.css" />
+    <Content Include="Asset\Content\site.css" />
+    <Content Include="Asset\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.ttf" />
@@ -897,14 +903,8 @@
     <Content Include="Asset\Content\bootstrap-theme.css.map" />
     <Content Include="Asset\Content\bootstrap.min.css.map" />
     <Content Include="Asset\Content\bootstrap.css.map" />
-    <None Include="Asset\Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Asset\Scripts\jquery-1.9.1.js" />
-    <Content Include="Asset\Scripts\jquery-1.9.1.min.js" />
     <Content Include="Index.html" />
-    <Content Include="Asset\Scripts\angular-local-storage.js" />
-    <Content Include="Asset\Scripts\angular-local-storage.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Asset\Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
