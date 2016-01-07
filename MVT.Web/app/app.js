@@ -36,6 +36,10 @@ app.config(function ($routeProvider) {
         controller: "needysController",
         templateUrl: "/app/views/needys.html"
     });
+    $routeProvider.when("/projectlist", {
+        controller: "projectlistController",
+        templateUrl: "/app/views/projectlist.html"
+    });
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

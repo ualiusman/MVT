@@ -13,18 +13,18 @@ using MVT;
 
 namespace MVT.Controllers
 {
-    [Authorize(Roles = "Admin")]
+   
     public class ProjectController : ApiController
     {
         private MVTContext db = new MVTContext();
-
+     
         // GET api/Project
         public IQueryable<ProjectModel> GetProjects()
         {
             return db.Projects.Where(proj => proj.isActive == true)
                 .Select(f => new ProjectModel { Description = f.Description, Name=f.Name, Id = f.Id });
         }
-
+         [Authorize(Roles = "Admin")]
         // GET api/Project/5
         [ResponseType(typeof(ProjectModel))]
         public IHttpActionResult GetProject(long id)
@@ -37,7 +37,7 @@ namespace MVT.Controllers
 
             return Ok(App.Convert(project));
         }
-
+         [Authorize(Roles = "Admin")]
         // PUT api/Project/5
         public IHttpActionResult PutProject(long id, ProjectModel project)
         {
@@ -77,7 +77,7 @@ namespace MVT.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+         [Authorize(Roles = "Admin")]
         // POST api/Project
         [ResponseType(typeof(ProjectModel))]
         public IHttpActionResult PostProject(ProjectModel project)
@@ -92,7 +92,7 @@ namespace MVT.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = p.Id }, App.Convert(p));
         }
-
+         [Authorize(Roles = "Admin")]
         // DELETE api/Project/5
         public IHttpActionResult DeleteProject(long id)
         {
@@ -117,7 +117,7 @@ namespace MVT.Controllers
             }
             base.Dispose(disposing);
         }
-
+         [Authorize(Roles = "Admin")]
         private bool ProjectExists(long id)
         {
             return db.Projects.Count(e => e.Id == id) > 0;

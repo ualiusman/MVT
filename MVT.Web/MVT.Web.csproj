@@ -62,6 +62,7 @@
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\needysController.js" />
     <Content Include="app\controllers\profileController.js" />
+    <Content Include="app\controllers\projectlistController.js" />
     <Content Include="app\controllers\projectsController.js" />
     <Content Include="app\controllers\usersController.js" />
     <Content Include="app\controllers\signupController.js" />
@@ -69,12 +70,14 @@
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\needysService.js" />
     <Content Include="app\services\profileService.js" />
+    <Content Include="app\services\projectlistService.js" />
     <Content Include="app\services\projectsService.js" />
     <Content Include="app\services\usersService.js" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\needys.html" />
     <Content Include="app\views\profile.html" />
+    <Content Include="app\views\projectlist.html" />
     <Content Include="app\views\projects.html" />
     <Content Include="app\views\users.html" />
     <Content Include="app\views\signup.html" />
@@ -86,6 +89,7 @@
     <Content Include="Asset\Images\M_Id_307360_NGO.jpg" />
     <Content Include="Asset\Images\ngo.jpg" />
     <Content Include="Asset\Images\ngo_mysore.jpg" />
+    <Content Include="Asset\Images\project-icon.png" />
     <Content Include="Asset\Images\userpic.jpg" />
     <Content Include="Asset\Scripts\angular-animate.js" />
     <Content Include="Asset\Scripts\angular-animate.min.js" />

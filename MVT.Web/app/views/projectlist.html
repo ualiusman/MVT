@@ -1,0 +1,95 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <h3>Latest Projects</h3>
+    </div>
+</div>
+<hr />
+<div class="container" ng-controller="projectlistController">
+    <div class="row text-center" >
+       
+            <div class="col-md-3 col-sm-6 hero-feature" ng-repeat="proj in projects">
+                <div class="thumbnail">
+                    <img src="../Asset/Images/project-icon.png" style="height:50px;width:50px;" alt="">
+                    <div class="caption">
+                        <h3>{{proj.name}}</h3>
+                        <p >{{proj.description}}</p>
+                        <p>
+                            <button class="btn btn-primary" ng-click="toggleModal(proj.id,proj.name,proj.description)">Donate!</button>  <button class="btn btn-default">Project Detail</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+       
+    </div>
+    <div  ng-show="success" ng-animate="{show: 'example-show'}">
+        <p>Thank you for your donation, we will contact you shortly!</p>
+    </div>
+    <modal title="Donation Form" visible="showModal">
+        <!--<form role="form">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" />
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>-->
+        <form name="form" role="form" novalidate class="css-form panel">           
+            <div  ng-animate="{hide:'example-hide'}">
+                <div class="form-group">
+                    Project Name:
+                    <input type="text" ng-model="projectname" class="form-control" readonly/>
+                   </div>
+                <div class="form-group">
+                   Project description:
+                    <textarea class="form-control" ng-model="description" readonly></textarea>
+                    </div>
+                <div>
+                    Amount*:
+                    <input type="number" class="form-control" placeholder="Pease Enter Amount" ng-model="Contributor.ammount" required autocomplete="on" />
+                </div>
+                <br />
+                <button class="btn btn-primary" ng-click="Adddonation(Contributor)" >Submit</button>
+                    <button class="btn btn-default" ng-click="reset()">Clear</button>
+                <br />
+                    <p>* denotes required fields</p>
+                </div>
+        </form>
+        
+    </modal>
+</div>
+<style>
+    .hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+    
+}
+</style>
+<!--For Donation form-->
+<style type="text/css">
+    .css-form input
+    {
+        background-color: #ffffff;
+    }
+    .css-form input.ng-invalid.ng-dirty {
+        background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-dirty {
+        background-color: #78FA89;
+    }
+
+    .white p {
+        color: #fff !important;
+    }
+    
+    
+</style> 
+
+
+
