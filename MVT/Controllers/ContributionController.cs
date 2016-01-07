@@ -18,17 +18,20 @@ namespace MVT.Controllers
         private MVTContext db = new MVTContext();
 
         // GET api/Contribution
-        public IQueryable<ContributionModel> GetContributions()
+        public List<ContributionModel> GetContributions()
         {
-            return db.Contributions.Where(f => f.IsActive == true)
+            AuthRepository repo = new AuthRepository();
+            return db.Contributions.Where(f => f.IsActive == true).ToList()
                 .Select(f =>  new ContributionModel
                 { 
                     ContributionId = f.ContributionId,
                     Contributor = f.Contributor,
                     Date = f.Date,
                     Ammount = f.Ammount,
-                    ProjectId = f.ProjectId
-                });
+                    ProjectId = f.ProjectId,
+                    ProjectName = f.Project.Name,
+                    ContributorName = repo.GetName(f.Contributor)
+                }).ToList();
         }
 
         // GET api/Contribution/5

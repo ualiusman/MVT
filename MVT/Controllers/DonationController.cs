@@ -27,7 +27,9 @@ namespace MVT.Controllers
                     NeedyId = f.NeedyId, 
                     Date = f.Date,
                     ProjectId = f.ProjectId, 
-                    DonationId = f.DonationId
+                    DonationId = f.DonationId,
+                    ProjectName = f.Project.Name,
+                    NeedyName = f.Needy.Name
                 });
         }
 

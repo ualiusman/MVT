@@ -49,6 +49,17 @@ namespace MVT
             return await _userManager.GetRolesAsync(user.Id);
         }
 
+        public string GetName(string username)
+        {
+            string name = string.Empty;
+            var user = _userManager.FindByName(username);
+            if(user != null)
+            {
+                name = user.FirstName + " " + user.LastName;
+            }
+            return name;
+        }
+
         public void Dispose()
         {
             _ctx.Dispose();

@@ -50,6 +50,10 @@ namespace MVT.Models
         [Required]
         public int Ammount { get; set; }
 
+        public string ProjectName { get; set; }
+
+        public string ContributorName { get; set; }
+
         public DateTime Date { get; set; }
 
     }

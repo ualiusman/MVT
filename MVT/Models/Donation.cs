@@ -54,6 +54,10 @@ namespace MVT.Models
         [Required]
         public int Ammount { get; set; }
 
+        public string ProjectName { get; set; }
+
+        public string NeedyName { get; set; }
+
         public DateTime Date { get; set; }
 
 

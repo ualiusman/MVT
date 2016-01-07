@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('projectlistController', ['$scope', 'projectlistService', function ($scope, projectlistService) {
+app.controller('projectlistController', ['$scope', '$location', 'projectlistService', function ($scope,$location, projectlistService) {
 
     $scope.projects = [];
     $scope.showModal = false;
@@ -13,18 +13,22 @@ app.controller('projectlistController', ['$scope', 'projectlistService', functio
         ammount:0
         
     };
-    $scope.toggleModal = function (id,name,description) {
+    $scope.toggleModal = function (id, name, description) {
         $scope.Contributor.projectId = id;
-        $scope.Contributor.contributor = projectlistService.userName(function (results) {
+        var username = projectlistService.userName(function (results) {
         return results;
         });
+        if (username == "fake") {
+            $location.path('/login');
+            return;
+        }
+        $scope.Contributor.contributor = username;
         $scope.projectname = name;
         $scope.description = description;
         $scope.reset();
         $scope.showModal = !$scope.showModal;
         };
         projectlistService.getProjects().then(function (results) {
-        debugger;
         $scope.projects = results.data;
     }, function (error) {
     });

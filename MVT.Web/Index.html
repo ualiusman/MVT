@@ -36,7 +36,7 @@ img{
     <div class="navbar navbar-inverse navbar-fixed-top ng-scope" role="navigation" data-ng-controller="indexController">
         <div class="container">
 
-            <img src="../../Asset/Images/Icon/logo.jpg" style="float:left;height:40px;width:170px;" />
+            <!--<img src="../../Asset/Images/Icon/logo.jpg" style="float:left;height:40px;width:170px; margin-top:5px;" />-->
 
             <div class="navbar-header">
                 
@@ -44,15 +44,18 @@ img{
                     <span class="glyphicon glyphicon-chevron-down"></span>
                 </button>
 
-                <a style="margin-left:10%!important;" class="navbar-brand" href="#/">Home</a>
+                <a class="navbar-brand" href="#/"><img style="height: 40px; width: 170px; margin-top:-9px" src="../../Asset/Images/Icon/logo.jpg" alt="home"></a>
             </div>
             <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="#/profile" class="ng-binding">Welcome {{authentication.userName}}</a></li>
+                    
                     <li data-ng-hide="!(authentication.isAuth && authentication.role ==='Admin')" class="ng-hide"><a href="#/projects">Projects</a></li>
                     <li data-ng-hide="!(authentication.isAuth && authentication.role ==='Admin')" class="ng-hide"><a href="#/needys">Needys</a></li>
-                    <li data-ng-hide="!(authentication.isAuth && authentication.role !='Admin')" class="ng-hide"><a href="#/projectlist" class="ng-binding">Projects</a></li>
-                    <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="#/users">Users</a></li>
+                    <li data-ng-hide="!(authentication.isAuth && authentication.role ==='Admin')" class="ng-hide"><a href="#/donations">Donations</a></li>
+                    <li data-ng-hide="!(authentication.isAuth && authentication.role ==='Admin')" class="ng-hide"><a href="#/contributions">Contributions</a></li>
+                    <li data-ng-hide="!(authentication.isAuth && authentication.role ==='Admin')" class="ng-hide"><a href="#/users">Users</a></li>
+                    <li data-ng-hide="authentication.role ==='Admin'" class="ng-hide"><a href="#/projectlist" class="ng-binding">Projects</a></li>
+                    <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="#/profile" class="ng-binding">Welcome {{authentication.userName}}</a></li>
                     <li data-ng-hide="!authentication.isAuth" class="ng-hide"><a href="" data-ng-click="logOut()">Logout</a></li>
                     <li data-ng-hide="authentication.isAuth" class=""> <a href="#/login">Login</a></li>
                     <li data-ng-hide="authentication.isAuth" class=""> <a href="#/signup">Sign Up</a></li>
@@ -95,6 +98,10 @@ img{
     <script src="app/services/profileService.js"></script>
     <script src="app/services/needysService.js"></script>
     <script src="app/services/projectlistService.js"></script>
+    <script src="app/services/contributionsService.js"></script>
+    <script src="app/services/donationsService.js"></script>
+
+
     <!-- controllers -->
     <script src="app/controllers/indexController.js"></script>
     <script src="app/controllers/homeController.js"></script>
@@ -106,6 +113,10 @@ img{
     <script src="app/controllers/needysController.js"></script>
     <script src="Asset/Scripts/angular-bootstrap.min.js"></script>
     <script src="app/controllers/projectlistController.js"></script>
+    <script src="app/controllers/contributionsController.js"></script>
+    <script src="app/controllers/donationsController.js"></script>
+
+
 
     <script>
         

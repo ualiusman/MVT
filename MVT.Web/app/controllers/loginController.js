@@ -9,11 +9,14 @@ app.controller('loginController', ['$scope', '$location', 'authService', functio
     $scope.message = "";
 
     $scope.login = function (isValid) {
-        debugger;
         if (isValid.$valid) {
             authService.login($scope.loginData).then(function (response) {
 
-                $location.path('/users');
+                var role = JSON.parse(response.roles)[0];
+                if(role ==="Admin")
+                    $location.path('/users');
+                else
+                    $location.path('/projectlist');
 
             },
              function (err) {

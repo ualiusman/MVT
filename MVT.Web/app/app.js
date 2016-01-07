@@ -40,6 +40,14 @@ app.config(function ($routeProvider) {
         controller: "projectlistController",
         templateUrl: "/app/views/projectlist.html"
     });
+    $routeProvider.when("/contributions", {
+        controller: "contributionsController",
+        templateUrl: "/app/views/contributions.html"
+    });
+    $routeProvider.when("/donations", {
+        controller: "donationsController",
+        templateUrl: "/app/views/donations.html"
+    });
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

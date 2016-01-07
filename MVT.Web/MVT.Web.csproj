@@ -57,6 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controllers\contributionsController.js" />
+    <Content Include="app\controllers\donationsController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
@@ -68,11 +70,15 @@
     <Content Include="app\controllers\signupController.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\services\contributionsService.js" />
+    <Content Include="app\services\donationsService.js" />
     <Content Include="app\services\needysService.js" />
     <Content Include="app\services\profileService.js" />
     <Content Include="app\services\projectlistService.js" />
     <Content Include="app\services\projectsService.js" />
     <Content Include="app\services\usersService.js" />
+    <Content Include="app\views\contributions.html" />
+    <Content Include="app\views\donations.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\needys.html" />

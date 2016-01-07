@@ -1,0 +1,54 @@
+﻿<div ng-controller="donationsController" class="row">
+
+
+
+
+    <div class="col-md-2">
+        &nbsp;
+    </div>
+    <div class="col-md-8">
+        <form name="form" class="form-login" role="form" ng-submit="saveProject(form.$invalid)">
+            <h2 class="form-login-heading">Add Donation</h2>
+            <select>
+                <option value="1">Needy1</option>
+            </select>
+            <select>
+                <option value="1">Project</option>
+            </select>
+            <input type="tel" class="form-control" placeholder="Amount(Rs.)" data-ng-model="addDonation.ammount" required autofocus>
+            <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveDonation(form)">Add</button>
+            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                {{message}}
+            </div>
+        </form>
+        <br /><br />
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Needy</th>
+                    <th>Amount(Rs.)</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="d in donations">
+                    <td>{{d.projectName}}
+                    </td>
+                    <td>{{d.needyName}}
+                    </td>
+                    <td>{{d.ammount}}</td>
+                    <td>{{d.date | date:'dd/MM/yyyy'}}</td>
+
+                    <td><a href="#" ng-click="deleteDonation(d.donationId,$index,$event)">Delete</a></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2">
+        &nbsp;
+    </div>
+
+</div>

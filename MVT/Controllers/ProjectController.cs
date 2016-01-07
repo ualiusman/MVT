@@ -117,7 +117,6 @@ namespace MVT.Controllers
             }
             base.Dispose(disposing);
         }
-         [Authorize(Roles = "Admin")]
         private bool ProjectExists(long id)
         {
             return db.Projects.Count(e => e.Id == id) > 0;

@@ -11,7 +11,7 @@ using System.Web.Http;
 namespace MVT.Controllers
 {
     [RoutePrefix("api/Users")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class UsersController : ApiController
     {
        
