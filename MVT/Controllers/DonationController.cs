@@ -100,7 +100,7 @@ namespace MVT.Controllers
             var d = db.Donations.Add(App.Convert(donation));
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = d.DonationId }, App.Convert(d));
+            return CreatedAtRoute("DefaultApi", new { id = d.DonationId }, donation);
         }
 
         // DELETE api/Donation/5

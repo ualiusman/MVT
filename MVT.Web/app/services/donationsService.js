@@ -24,11 +24,26 @@ app.factory('donationsService', ['$http', function ($http) {
         });
 
     };
+    var _getNeedys = function () {
 
+        return $http.get(serviceBase + 'api/Needy').then(function (results) {
+            debugger;
+            return results;
+        });
+    };
+    var _getProjects = function () {
+
+        return $http.get(serviceBase + 'api/Project').then(function (results) {
+            debugger;
+            return results;
+        });
+    };
     debugger;
     donationsServiceFactory.getDonations = _getDonations;
     donationsServiceFactory.deleteDonation = _deleteDonation;
     donationsServiceFactory.saveDonation = _saveDonation;
+    donationsServiceFactory.getNeedys = _getNeedys;
+    donationsServiceFactory.getProjects = _getProjects;
     return donationsServiceFactory;
 
 }])

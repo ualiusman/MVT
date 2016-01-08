@@ -91,7 +91,10 @@ namespace MVT.Models
                  Date = donation.Date,
                  DonationId = donation.DonationId,
                  NeedyId = donation.NeedyId,
-                 ProjectId = donation.ProjectId
+                 ProjectId = donation.ProjectId,
+                  NeedyName=donation.Needy.Name,
+                  ProjectName=donation.Project.Name
+
             };
         }
 
