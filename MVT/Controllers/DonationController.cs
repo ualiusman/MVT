@@ -97,10 +97,13 @@ namespace MVT.Controllers
                 return BadRequest(ModelState);
             }
 
-            var d = db.Donations.Add(App.Convert(donation));
+            var dn = db.Donations.Add(App.Convert(donation));
             db.SaveChanges();
+            db.Entry(dn).Reference(d => d.Project).Load();
+            db.Entry(dn).Reference(d => d.Needy).Load();
 
-            return CreatedAtRoute("DefaultApi", new { id = d.DonationId }, donation);
+
+            return CreatedAtRoute("DefaultApi", new { id = dn.DonationId }, App.Convert(dn));
         }
 
         // DELETE api/Donation/5
