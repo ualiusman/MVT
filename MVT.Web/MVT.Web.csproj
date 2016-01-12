@@ -64,6 +64,7 @@
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\needysController.js" />
     <Content Include="app\controllers\profileController.js" />
+    <Content Include="app\controllers\projectDetailController.js" />
     <Content Include="app\controllers\projectlistController.js" />
     <Content Include="app\controllers\projectsController.js" />
     <Content Include="app\controllers\usersController.js" />
@@ -83,6 +84,7 @@
     <Content Include="app\views\login.html" />
     <Content Include="app\views\needys.html" />
     <Content Include="app\views\profile.html" />
+    <Content Include="app\views\project-detail.html" />
     <Content Include="app\views\projectlist.html" />
     <Content Include="app\views\projects.html" />
     <Content Include="app\views\users.html" />

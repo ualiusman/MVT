@@ -13,6 +13,7 @@ using MVT;
 
 namespace MVT.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class NeedyController : ApiController
     {
         private MVTContext db = new MVTContext();

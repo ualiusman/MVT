@@ -48,6 +48,16 @@ app.config(function ($routeProvider) {
         controller: "donationsController",
         templateUrl: "/app/views/donations.html"
     });
+
+    $routeProvider.when("/donations", {
+        controller: "donationsController",
+        templateUrl: "/app/views/donations.html"
+    });
+
+    $routeProvider.when("/project/:projectId", {
+        controller: "projectDetailController",
+        templateUrl: "/app/views/project-detail.html"
+    });
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 
@@ -59,4 +69,8 @@ app.constant('serviceBase', 'http://localhost:60384/');
 app.run(['authService', function (authService) {
     authService.fillAuthData();
 }]);
+
+app.controller('folderCtrl', function ($scope, $http) {
+    $scope.images = ['../../Asset/Images/images (1).jpg', '../../Asset/Images/helping-others.jpg', '../../Asset/Images/ngo_mysore.jpg', '../../Asset/Images/ngo.jpg', '../../Asset/Images/M_Id_307360_NGO.jpg'];
+});
 

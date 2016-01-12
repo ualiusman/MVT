@@ -6,106 +6,14 @@
     <link href="Asset/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Asset/Content/site.css" rel="stylesheet" />
     <link href="Asset/Content/loading-bar.css" rel="stylesheet" />
-    <link href="Asset/Content/bootstrap.min.css" rel="stylesheet" />
   
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <style>
-        .carousel-inner > .item > img,
-        .carousel-inner > .item > a > img {
-            width: 70%;
-            margin: auto;
-        }
-    </style>
-    <style>
-        #slides_control > div{
-  height: 200px;
-}
-img{
-  margin:auto;
-  width: 400px;
-}
-#slides_control {
-  position:absolute;
-  width: 400px;
-  left:50%;
-  top:20px;
- margin-left:-200px;
-}
-    </style>
-    <style>
-        .view-slide-in.ng-enter {
-  transition: all 1s ease;
-  -webkit-transition:all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  
-  opacity:0.5;
-  position:relative;
-  opacity:0;
-  top:10px;
-  left:20px;
-}
-        .view-slide-in.ng-enter {
-  opacity: 0;
-}
-.view-slide-in.ng-enter.ng-enter-active {
-  top:0;
-  left:0;
-  opacity: 1;
-}
-.view-slide-in.ng-leave.ng-leave-active{
-  top:5px;
-  left:5px;
-  opacity:1;
-}
-.view-slide-in.ng-leave{
-  top:0;
-  left:0;
-  opacity:0;
-}
-    </style>
-    <style>
-        .repeat-animation.ng-enter,
-.repeat-animation.ng-leave,
-.repeat-animation.ng-move {
-  -webkit-transition: all linear 1s;
-  -moz-transition: all linear 1s;
-  -o-transition: all linear 1s;
-  transition: all linear 1s;
     
-  position:relative;
-  left:5px;
-}
-.repeat-animation.ng-enter {
-  opacity: 0;
-}
-.repeat-animation.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-.repeat-animation.ng-leave {
-  opacity: 1;
-}
-.repeat-animation.ng-leave.ng-leave-active {
-  opacity: 0;
-}
-.repeat-animation.ng-move {
-  left:2px;
-  opacity: 0.5;
-}
-.repeat-animation.ng-move.ng-move-active {
-  left:0;
-  opacity: 1;
-}
-    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top ng-scope" role="navigation" data-ng-controller="indexController">
         <div class="container">
-
-            <!--<img src="../../Asset/Images/Icon/logo.jpg" style="float:left;height:40px;width:170px; margin-top:5px;" />-->
-
             <div class="navbar-header">
-                
                 <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
                     <span class="glyphicon glyphicon-chevron-down"></span>
                 </button>
@@ -141,19 +49,25 @@ img{
             <div class="row">
                 
                
-                <!--<p>-->Copyright <b>©</b> 2016 - Moftak Welfare Trust ~ MWT <!--</p>-->
+                Copyright <b>©</b> 2016 - Moftak Welfare Trust ~ MWT
               
             </div>
         </div>
     </div>
+
     <!-- Libs -->
     <script src="Asset/Scripts/angular.min.js"></script>
     <script src="Asset/Scripts/angular-route.min.js"></script>
     <script src="Asset/Scripts/angular-local-storage.min.js"></script>
     <script src="Asset/Scripts/loading-bar.js"></script>
+    <script src="Asset/Scripts/angular-animate.min.js"></script>
+    <script src="Asset/Scripts/angular-animate.js"></script>
+    <script src="Asset/Scripts/angular-bootstrap.min.js"></script>
+
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
       <!-- app -->
     <script src="app/app.js"></script>
 
@@ -178,19 +92,11 @@ img{
     <script src="app/controllers/projectsController.js"></script>
     <script src="app/controllers/profileController.js"></script>
     <script src="app/controllers/needysController.js"></script>
-    <script src="Asset/Scripts/angular-bootstrap.min.js"></script>
     <script src="app/controllers/projectlistController.js"></script>
     <script src="app/controllers/contributionsController.js"></script>
     <script src="app/controllers/donationsController.js"></script>
 
-    <script src="Asset/Scripts/angular-animate.min.js"></script>
-    <script src="Asset/Scripts/angular-animate.js"></script>
+    
 
-    <script>
-        
-        app.controller('folderCtrl', function ($scope, $http) {
-            $scope.images = ['../../Asset/Images/images (1).jpg', '../../Asset/Images/helping-others.jpg', '../../Asset/Images/ngo_mysore.jpg', '../../Asset/Images/ngo.jpg', '../../Asset/Images/M_Id_307360_NGO.jpg'];
-        });     
-    </script>
 </body>
 </html>

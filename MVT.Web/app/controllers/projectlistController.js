@@ -54,9 +54,6 @@ app.controller('projectlistController', ['$scope', '$location', 'projectlistServ
         $scope.Contributor.ammount = '';     
     };
 
-    //$scope.isUnchanged = function (user) {
-    //    return angular.equals(user, $scope.master);
-    //};
 
 
    

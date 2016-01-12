@@ -24,7 +24,7 @@ namespace MVT.Controllers
             return db.Projects.Where(proj => proj.isActive == true)
                 .Select(f => new ProjectModel { Description = f.Description, Name=f.Name, Id = f.Id });
         }
-         [Authorize(Roles = "Admin")]
+
         // GET api/Project/5
         [ResponseType(typeof(ProjectModel))]
         public IHttpActionResult GetProject(long id)

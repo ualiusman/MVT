@@ -17,6 +17,7 @@ namespace MVT.Controllers
     {
         private MVTContext db = new MVTContext();
 
+        [Authorize(Roles = "Admin")]
         // GET api/Contribution
         public List<ContributionModel> GetContributions()
         {
@@ -35,6 +36,7 @@ namespace MVT.Controllers
         }
 
         // GET api/Contribution/5
+        [Authorize(Roles = "Admin")]
         [ResponseType(typeof(ContributionModel))]
         public IHttpActionResult GetContribution(long id)
         {
@@ -48,6 +50,7 @@ namespace MVT.Controllers
         }
 
         // PUT api/Contribution/5
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult PutContribution(long id, ContributionModel contribution)
         {
             if (!ModelState.IsValid)
@@ -105,6 +108,7 @@ namespace MVT.Controllers
         }
 
         // DELETE api/Contribution/5
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteContribution(long id)
         {
             Contribution contribution = db.Contributions.Find(id);
