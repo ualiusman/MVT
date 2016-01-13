@@ -7,15 +7,15 @@
         &nbsp;
     </div>
     <div class="col-md-8">
-        <form name="form" class="form-login" role="form" ng-submit="saveProject(form.$invalid)">
-        <h2 class="form-login-heading">Add Donation</h2>
+        <form name="form" class="form-login signup" role="form" ng-submit="saveProject(form.$invalid)">
+            <h2 class="form-login-heading">Add Donation</h2>
             <select ng-model="ddlneedies" class="form-control" ng-options="needy.id as needy.name for needy in needys track by needy.id"></select>
             <select ng-model="ddlprojects" class="form-control" ng-options="project.id as project.name for project in projects track by project.id"></select>
-        <input type="tel" class="form-control" placeholder="Amount(Rs.)" data-ng-model="addDonation.ammount" required autofocus>
-        <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveDonation(form)">Add</button>
-        <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
-        {{message}}
-        </div>
+            <input type="tel" class="form-control" placeholder="Amount(Rs.)" data-ng-model="addDonation.ammount" required autofocus>
+            <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveDonation(form)">Add</button>
+            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                {{message}}
+            </div>
         </form>
         <br /><br />
         <div>

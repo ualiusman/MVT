@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-8">
             
-            <form name="form" class="form-login" role="form" ng-submit="saveProject(form.$invalid)">
+            <form name="form" class="form-login signup" role="form" ng-submit="saveProject(form.$invalid)">
                 <h2 class="form-login-heading">{{ isEdit? "Update Project" : "Add Project"}}</h2>
                 <input type="text" class="form-control" placeholder="Project Name" data-ng-model="addproject.name" required autofocus>
                 <textarea class="form-control" placeholder="Description" data-ng-model="addproject.description"></textarea>
