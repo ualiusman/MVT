@@ -6,7 +6,10 @@
     <link href="Asset/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Asset/Content/site.css" rel="stylesheet" />
     <link href="Asset/Content/loading-bar.css" rel="stylesheet" />
-  
+
+    <a href="Index.html">Index.html</a>
+    <script src="Asset/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Asset/Scripts/jquery-1.9.1.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
 </head>
@@ -56,6 +59,7 @@
     </div>
 
     <!-- Libs -->
+   
     <script src="Asset/Scripts/angular.min.js"></script>
     <script src="Asset/Scripts/angular-route.min.js"></script>
     <script src="Asset/Scripts/angular-local-storage.min.js"></script>
@@ -63,7 +67,9 @@
     <script src="Asset/Scripts/angular-animate.min.js"></script>
     <script src="Asset/Scripts/angular-animate.js"></script>
     <script src="Asset/Scripts/angular-bootstrap.min.js"></script>
-
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://rawgit.com/pablojim/highcharts-ng/master/dist/highcharts-ng.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -95,8 +101,44 @@
     <script src="app/controllers/projectlistController.js"></script>
     <script src="app/controllers/contributionsController.js"></script>
     <script src="app/controllers/donationsController.js"></script>
+    <script src="app/controllers/projectDetailController.js"></script>
+    <script>
+Highcharts.theme = {
+    colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572',
+             '#FF9655', '#FFF263', '#6AF9C4'],
+    chart: {
+        backgroundColor: {
+            linearGradient: [0, 0, 500, 500],
+            stops: [
+                [0, 'rgb(255, 255, 255)'],
+                [1, 'rgb(240, 240, 255)']
+            ]
+        },
+    },
+    title: {
+        style: {
+            color: '#000',
+            font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
+        }
+    },
+    subtitle: {
+        style: {
+            color: '#666666',
+            font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
+        }
+    },
 
-    
+    legend: {
+        itemStyle: {
+            font: '9pt Trebuchet MS, Verdana, sans-serif',
+            color: 'black'
+        },
+        itemHoverStyle: {
+            color: 'gray'
+        }
+    }
+};
+    Highcharts.setOptions(Highcharts.theme);</script>
 
 </body>
 </html>

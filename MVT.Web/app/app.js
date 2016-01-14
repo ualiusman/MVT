@@ -1,6 +1,6 @@
 ﻿var serviceBase = 'http://localhost:60384/';
 
-var app = angular.module('AngularAuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'ngAnimate']);
+var app = angular.module('AngularAuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'ngAnimate', 'highcharts-ng']);
 
 app.config(function ($routeProvider) {
 

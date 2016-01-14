@@ -13,7 +13,7 @@ using MVT;
 
 namespace MVT.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class DonationController : ApiController
     {
         private MVTContext db = new MVTContext();
