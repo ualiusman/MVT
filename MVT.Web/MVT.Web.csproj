@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -90,6 +91,9 @@
     <Content Include="app\views\users.html" />
     <Content Include="app\views\signup.html" />
     <Content Include="Asset\Content\loading-bar.css" />
+    <Content Include="Asset\Images\banner-bg.png" />
+    <Content Include="Asset\Images\blue-transp-bg-2.png" />
+    <Content Include="Asset\Images\green-transp-bg-2.png" />
     <Content Include="Asset\Images\helping-others.jpg" />
     <Content Include="Asset\Images\Icon\logo.jpg" />
     <Content Include="Asset\Images\images %281%29.jpg" />
@@ -98,6 +102,9 @@
     <Content Include="Asset\Images\ngo.jpg" />
     <Content Include="Asset\Images\ngo_mysore.jpg" />
     <Content Include="Asset\Images\project-icon.png" />
+    <Content Include="Asset\Images\Projects\1.jpg" />
+    <Content Include="Asset\Images\Projects\2.jpg" />
+    <Content Include="Asset\Images\Projects\3.jpg" />
     <Content Include="Asset\Images\userpic.jpg" />
     <Content Include="Asset\Scripts\angular-animate.js" />
     <Content Include="Asset\Scripts\angular-animate.min.js" />
