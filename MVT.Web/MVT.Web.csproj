@@ -92,6 +92,7 @@
     <Content Include="app\views\signup.html" />
     <Content Include="Asset\Content\loading-bar.css" />
     <Content Include="Asset\Images\banner-bg.png" />
+    <Content Include="Asset\Images\bg-fund_raising.jpg" />
     <Content Include="Asset\Images\blue-transp-bg-2.png" />
     <Content Include="Asset\Images\green-transp-bg-2.png" />
     <Content Include="Asset\Images\helping-others.jpg" />
