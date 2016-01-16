@@ -128,7 +128,7 @@ namespace MVT
 
             p = new Project { isActive = true, Description = "This project is initiated to collect money to bear the expenses of marriages of poor people.", Name = "Marriage Funds" };
             context.Projects.Add(p);
-            
+            context.SaveChanges();
             
 
 

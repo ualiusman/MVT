@@ -38,12 +38,21 @@ app.factory('donationsService', ['$http', function ($http) {
             return results;
         });
     };
+
+    var _getMonthlyDonation = function (id) {
+        return $http.get(serviceBase + 'api/MonthlyDonation/' + id).then(function (results) {
+            debugger;
+            return results;
+        });
+    };
     debugger;
     donationsServiceFactory.getDonations = _getDonations;
     donationsServiceFactory.deleteDonation = _deleteDonation;
     donationsServiceFactory.saveDonation = _saveDonation;
     donationsServiceFactory.getNeedys = _getNeedys;
     donationsServiceFactory.getProjects = _getProjects;
+    donationsServiceFactory.getMonthlyDonation = _getMonthlyDonation;
+
     return donationsServiceFactory;
 
 }])

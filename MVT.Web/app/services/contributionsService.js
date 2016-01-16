@@ -19,9 +19,17 @@ app.factory('contributionsService', ['$http', function ($http) {
         });
     };
 
+    var _getMonthlyContribution = function (id) {
+        return $http.get(serviceBase + 'api/MonthlyContribution/' + id).then(function (results) {
+            debugger;
+            return results;
+        });
+    };
+
     debugger;
     contributionsServiceFactory.getContributions = _getContributions;
     contributionsServiceFactory.deleteContribution = _deleteContribution;
+    contributionsServiceFactory.getMonthlyContribution = _getMonthlyContribution;
     return contributionsServiceFactory;
 
 }])

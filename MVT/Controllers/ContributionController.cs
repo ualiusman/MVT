@@ -124,6 +124,14 @@ namespace MVT.Controllers
             return Ok();
         }
 
+        [Route("api/MonthlyContribution/{id}")]
+        [HttpGet]
+        public List<int> MonthlyContribution(long id)
+        {
+            List<int> lst = db.Contributions.Where(f => f.IsActive == true && f.ProjectId == id).GroupBy(f => f.Date.Month).Select(f => f.Sum(i => i.Ammount)).ToList<int>();
+            return lst;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

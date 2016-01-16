@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsService', 'donationsService', '$filter', function ($scope, $routeParams, projectsService, donationsService, $filter) {
+app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsService', 'contributionsService', 'donationsService', '$filter', function ($scope, $routeParams, projectsService, contributionsService,donationsService, $filter) {
     $scope.projects = [];
     $scope.showModal = false;
     $scope.project = {
@@ -8,42 +8,32 @@ app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsSe
         id: 0
     };
     $scope.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    $scope.seriesDonation = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     //var projectId = $routeParams.projectId;
     projectsService.getProject($routeParams.projectId).then(function (results) {
         $scope.project = results.data;
     }, function (error) {
 
     });
-    donationsService.getDonations().then(function (results) {
+    contributionsService.getMonthlyContribution($routeParams.projectId).then(function (results) {
         debugger;
-       // $scope.donations = results.data;
-            angular.forEach(results.data, function (value, index)
-            {
-                //var dateString = "", month = "", day = "", year = "", jsondatetime = "";
-                //dateString = value.Date.slice(6);
-                debugger;
-               
-                var dati = $filter('date')(value.date, 'M');
-                //var current = new Date(value.Date);
-                //var tempArray = new Array();
-                $scope.series[dati - 1] = parseFloat(value.ammount);
-            });
+        angular.forEach(results.data, function (value, index) {
+
+            debugger;
+            $scope.series[index] = parseFloat(value);
+        });
     }, function (error) {
 
     });
-    //projectsService.getProjects().then(function (results) {
-    //    angular.forEach(results.data, function (value, index)
-    //    {
-    //        var dateString = "", month = "", day = "", year = "", jsondatetime = "";
-    //        dateString = value.Date.substr(6);
-    //        current = new Date(parseInt(dateString));
-    //        var tempArray = new Array();
-    //        series[current.getMonth()] = parseFloat(row.Ammount);
-    //    });
+    donationsService.getMonthlyDonation($routeParams.projectId).then(function (results) {
+        debugger;
+        angular.forEach(results.data, function (value, index) {
+            debugger;
+            $scope.seriesDonation[index] = parseFloat(value);
+        });
+    }, function (error) {
 
-    //}, function (error) {
-
-    //});
+    });
 
 
    
@@ -63,7 +53,7 @@ app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsSe
             type: 'spline'
         },
         title: {
-            text: 'Monthy Amounts for the year 2016',
+            text: 'Monthy contributions and Donations 2016',
 
         },
 
@@ -78,7 +68,7 @@ app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsSe
         },
         yAxis: {
             title: {
-                text: 'Total Price ($)'
+                text: 'Total ammount in month (Rs.)'
             },
             min: 0
         },
@@ -97,7 +87,7 @@ app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsSe
                 //var  time = new Date(this.key);
                 //var month=time.getMonth()+1;
                 alert('asdasd');
-                return 'Month:' + this.key + '   Total Donate Amount:' + this.y + ' ($)';
+                return 'Month:' + this.key + '   Total Contribution Amount:' + this.y + ' (Rs.)';
             }
         },
         legend: {
@@ -106,7 +96,8 @@ app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsSe
             verticalAlign: 'middle',
             borderWidth: 0
         },
-        series: [{ data: $scope.series, showInLegend: false }],
+        series: [{ name: 'Contribution', data: $scope.series, showInLegend: true },
+                 { name: 'Donation', data: $scope.seriesDonation, showInLegend: true }],
         credits: {
             enabled: false
         }
