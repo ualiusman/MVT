@@ -117,10 +117,22 @@ namespace MVT
         #endregion
         public static void InitilizeData(MVTContext context)
         {
-            Project p = new Project { isActive = true, Description = "Give it to Poors", Name = "Give It" };
+            Project p = new Project { isActive = true, Description = "Donate to bring a change in the life of poor people. We will help them to fullfil their basic needs", Name = "Basic Needs" };
             context.Projects.Add(p);
 
-            Needy n = new Needy() { IsActive = true, Location = "XYZ", Name = "Needy Name", PhoneNumber = "37363736" };
+            p = new Project { isActive = true, Description = "Donate to this project. We will utilize this money to spend on education expenditures of needy people", Name = "Education" };
+            context.Projects.Add(p);
+
+            p = new Project { isActive = true, Description = "Purpose of this project is to collect funds to spend on medical treatment required by needy people", Name = "Health" };
+            context.Projects.Add(p);
+
+            p = new Project { isActive = true, Description = "This project is initiated to collect money to bear the expenses of marriages of poor people.", Name = "Marriage Funds" };
+            context.Projects.Add(p);
+            
+            
+
+
+          Needy n = new Needy() { IsActive = true, Location = "XYZ", Name = "Needy Name", PhoneNumber = "37363736" };
             context.Needy.Add(n);
 
             Contribution contribution = new Contribution { Ammount = 100, Contributor = "contriutor", ProjectId = p.Id };
