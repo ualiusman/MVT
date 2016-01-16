@@ -71,6 +71,7 @@ app.run(['authService', function (authService) {
 }]);
 
 app.controller('folderCtrl', function ($scope, $http) {
+    $('.carousel ').carousel();
     $scope.images = ['../../Asset/Images/images (1).jpg', '../../Asset/Images/helping-others.jpg', '../../Asset/Images/ngo_mysore.jpg', '../../Asset/Images/ngo.jpg', '../../Asset/Images/M_Id_307360_NGO.jpg'];
 });
 
