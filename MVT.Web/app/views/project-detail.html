@@ -22,18 +22,21 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Project Name</th>
-                            <th>Project Description</th>
+                            <th>Name</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-ng-repeat="proj in projects">
+                        <tr data-ng-repeat="proj in projects" ng-if="proj.id!=project.id" >
+                            
                             <td>
-                                {{ proj.name }}
+                                <a href="#/project/{{proj.id}}" >{{ proj.name }}</a>
                             </td>
                             <td>
-                                {{ proj.description }}
+                               {{ proj.description | limitTocustom:38 }}
+                                
                             </td>
+
                         </tr>
                     </tbody>
                 </table>

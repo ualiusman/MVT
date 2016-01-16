@@ -74,3 +74,15 @@ app.controller('folderCtrl', function ($scope, $http) {
     $scope.images = ['../../Asset/Images/images (1).jpg', '../../Asset/Images/helping-others.jpg', '../../Asset/Images/ngo_mysore.jpg', '../../Asset/Images/ngo.jpg', '../../Asset/Images/M_Id_307360_NGO.jpg'];
 });
 
+app.filter('limitTocustom', function () {
+    'use strict';
+    return function (input, limit) {
+        if (input) {
+            if (limit > input.length) {
+                return input.slice(0, limit);
+            } else {
+                return input.slice(0, limit) + '...';
+            }
+        }
+    };
+});
