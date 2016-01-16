@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-8">
-            <img class="img-responsive img-rounded" src="../../Asset/Images/Projects/{{project.id}}.jpg" alt="">
+            <img class="img-responsive img-rounded" width="60%" src="../../Asset/Images/Projects/{{project.id}}.jpg" alt="">
         </div>
         <div class="col-md-4">
             <h1>{{project.name}}</h1>
@@ -12,7 +12,16 @@
     </div>
     <hr />
   
-    <div class="row">     
-        <div style="height:700px;width:700px;"><highchart id="chart1" config="highchartsNG"></highchart></div> 
-    </div>
+    <div class="row">   
+        <div class="col-md-8">
+            <div style="height:700px;width:700px;"><highchart id="chart1" config="highchartsNG"></highchart></div>
+        </div>
+            <div class="col-md-4">
+                
+                <h3>Other Projects</h3>
+                <p></p>
+                <!--<a class="btn btn-primary btn-lg" href="#">Donate!</a>-->
+            </div>
+
+        </div>
 </div>
