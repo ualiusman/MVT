@@ -1,6 +1,7 @@
 ﻿'use strict';
 app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsService', 'donationsService', '$filter', function ($scope, $routeParams, projectsService, donationsService, $filter) {
     $scope.projects = [];
+    $scope.showModal = false;
     $scope.project = {
         name: "",
         description: "",
@@ -43,6 +44,12 @@ app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsSe
     //}, function (error) {
 
     //});
+
+
+   
+
+
+
     projectsService.getProjects().then(function (results) {
         debugger;
         $scope.projects = results.data;
@@ -106,3 +113,4 @@ app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsSe
     }
 
 }]);
+
