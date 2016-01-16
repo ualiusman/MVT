@@ -1,12 +1,22 @@
 ﻿'use strict';
-app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsService', 'contributionsService', 'donationsService', '$filter', function ($scope, $routeParams, projectsService, contributionsService,donationsService, $filter) {
+app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsService', 'contributionsService', 'projectlistService', 'donationsService', '$filter', function ($scope, $routeParams, projectsService, contributionsService, projectlistService, donationsService, $filter) {
     $scope.projects = [];
     $scope.showModal = false;
+    $scope.pId = $routeParams.projectId;
     $scope.project = {
         name: "",
         description: "",
         id: 0
     };
+
+    $scope.Contributor = {
+
+        contributor: "",
+        projectId: 0,
+        ammount: 0
+
+    };
+
     $scope.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     $scope.seriesDonation = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     //var projectId = $routeParams.projectId;
@@ -102,6 +112,42 @@ app.controller('projectDetailController', ['$scope', '$routeParams', 'projectsSe
             enabled: false
         }
     }
+
+
+
+        $scope.toggleModal = function (id, name, description) {
+        $scope.Contributor.projectId = id;
+        var username = projectlistService.userName(function (results) {
+        return results;
+        });
+        if (username == "fake") {
+            $location.path('/login');
+            return;
+        }
+        $scope.Contributor.contributor = username;
+        $scope.projectname = name;
+        $scope.description = description;
+        $scope.reset();
+        $scope.showModal = !$scope.showModal;
+        };
+
+
+        $scope.Adddonation = function (user) {
+            debugger;
+            projectlistService.saveDonation(user).then(function (response) {
+                $scope.success = true; $scope.showModal = !$scope.showModal;
+            },
+                function (response) {
+
+                    $scope.message = "Error! Try Again";
+                });
+        };
+
+
+
+    $scope.reset = function () {
+        $scope.contributor.ammount = '';
+    };
 
 }]);
 
