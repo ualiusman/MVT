@@ -7,9 +7,9 @@
 <div class="container" ng-controller="projectlistController">
     <div class="row text-center" >
        
-            <div class="col-md-3 col-sm-6 hero-feature" ng-repeat="proj in projects">
+            <div class="col-md-3  hero-feature" ng-repeat="proj in projects">
                 <div class="thumbnail">
-                    <img src="../Asset/Images/projects/{{proj.id}}.jpg" style="height:50%;width:100%;" alt="">
+                    <img src="../Asset/Images/projects/{{proj.id}}.jpg" style="width:65%;" alt="">
                     <div class="caption">
                         <h3>{{proj.name}}</h3>
                         <p >
@@ -84,7 +84,11 @@
     .white p {
         color: #fff !important;
     }
-    
+
+
+    .thumbnail {
+    height:300px;
+    }
     
 </style> 
 

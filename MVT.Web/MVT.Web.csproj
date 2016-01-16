@@ -111,6 +111,8 @@
     <Content Include="Asset\Images\Projects\3.jpg" />
     <Content Include="Asset\Images\Projects\4.jpg" />
     <Content Include="Asset\Images\Projects\5.jpg" />
+    <Content Include="Asset\Images\Projects\6.jpg" />
+    <Content Include="Asset\Images\Projects\7.jpg" />
     <Content Include="Asset\Images\userpic.jpg" />
     <Content Include="Asset\Scripts\1.11.3\jquery.min.js" />
     <Content Include="Asset\Scripts\3.3.5\bootstrap.min.js" />
