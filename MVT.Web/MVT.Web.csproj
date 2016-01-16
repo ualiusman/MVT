@@ -142,6 +142,9 @@
     <Content Include="Asset\Scripts\angular.min.js" />
     <Content Include="Asset\Scripts\bootstrap.js" />
     <Content Include="Asset\Scripts\bootstrap.min.js" />
+    <Content Include="Asset\Scripts\highcharts-more.js" />
+    <Content Include="Asset\Scripts\highcharts-ng.js" />
+    <Content Include="Asset\Scripts\highcharts.js" />
     <Content Include="Asset\Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Asset\Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="Asset\Scripts\i18n\angular-locale_aa-et.js" />
@@ -890,6 +893,7 @@
     <Content Include="Asset\Scripts\jquery-1.9.1.js" />
     <Content Include="Asset\Scripts\jquery-1.9.1.min.js" />
     <Content Include="Asset\Scripts\loading-bar.js" />
+    <Content Include="Asset\Scripts\ui-bootstrap-tpls.min.js" />
     <Content Include="packages.config" />
     <Content Include="Asset\Scripts\angular-animate.min.js.map" />
     <Content Include="Asset\Scripts\angular-aria.min.js.map" />
