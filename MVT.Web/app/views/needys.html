@@ -7,13 +7,13 @@
         &nbsp;
     </div>
     <div class="col-md-8">
-        <form name="form-needy" class="form-login signup" role="form" ng-submit="needy(form.$invalid)">
+        <form name="form" class="form-login signup" role="form" ng-submit="needy(form.$invalid)">
             <h2 class="form-login-heading">{{ isEdit? "Update Needy" : "Add Needy"}}</h2>
             <input type="text" class="form-control" placeholder="Needy Name" data-ng-model="addneedy.name" required autofocus>
 
             <textarea class="form-control" placeholder="Location" data-ng-model="addneedy.location"></textarea>
             <input type="text" class="form-control" placeholder="Needy Phone no" data-ng-model="addneedy.phoneNumber" required autofocus>
-            <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveNeedy(form-needy)">{{ isEdit? "Update": "Add"}}</button>
+            <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="saveNeedy(form)">{{ isEdit? "Update": "Add"}}</button>
             <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
                 {{message}}
             </div>
